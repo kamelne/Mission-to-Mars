@@ -9,6 +9,7 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     />
+    <style> .hemisphere_columns{ column-count: 2 }</style>
   </head>
   <body>
     <div class="container">
@@ -43,9 +44,22 @@
         <div class="col-md-4">
           <!-- Mars Facts -->
           <div class="row" id="mars-facts">
-            <h4>Mars Facts</h4>
+            <h3>Mars Facts</h3>
             {{ mars.facts | safe }}
           </div>
+        </div>
+      </div>
+      <!-- Section for Hemispheres-->
+      <h2> Mars Hemishperes </h2>
+      <div class = 'hemisphere_columns' id = 'mars-hemispheres'>
+        {% for hemisphere in mars.hemispheres %}
+            <h3> {{hemisphere.title}}</h3>
+            <img 
+            src='{{hemisphere.img_url}}'
+            style="width:75%"
+              /> 
+        {% endfor %}
+        
         </div>
       </div>
     </div>
