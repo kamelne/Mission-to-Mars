@@ -9,9 +9,15 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     />
-    <style> .hemisphere_columns{ column-count: 2 }</style>
+    <!-- edit style of elements-->
+    <style> 
+    .dataframe {font-size : 18px; border :0} 
+    .jumbotron { background-color : rgba(183,65,14,.01)}
+    .btn-primary {color: white;border-color: white;; background-color : black; border-radius: 40px; height : 80px; text-align: center; line-height: 3 }
+    </style>
   </head>
-  <body>
+  <!-- added background color-->
+  <body style="background-color : rgba(183,65,14,.5)">
     <div class="container">
       <!-- Add Jumbotron to Header -->
       <div class="jumbotron text-center">
@@ -33,7 +39,7 @@
       </div>
       <!-- Section for Featured Image and Facts table -->
       <div class="row" id="mars-featured-image">
-        <div class="col-md-8">
+        <div class="col-md-7">
           <h2>Featured Mars Image</h2>
           <img
             src="{{mars.featured_image }}"
@@ -41,7 +47,7 @@
             alt="Responsive image"
           />
         </div>
-        <div class="col-md-4">
+        <div class="col-md-7">
           <!-- Mars Facts -->
           <div class="row" id="mars-facts">
             <h3>Mars Facts</h3>
@@ -50,16 +56,25 @@
         </div>
       </div>
       <!-- Section for Hemispheres-->
-      <h2> Mars Hemishperes </h2>
-      <div class = 'hemisphere_columns' id = 'mars-hemispheres'>
-        {% for hemisphere in mars.hemispheres %}
-            <h3> {{hemisphere.title}}</h3>
-            <img 
-            src='{{hemisphere.img_url}}'
-            style="width:75%"
-              /> 
-        {% endfor %}
-        
+      <dic class = 'container'>
+        <h2 style="padding-top: 50px; margin-top: 100px; text-align: center;">Mars Hemispheres</h2>
+        <div class="card-deck">
+            <hr>
+            <div class="col-md-12">
+                <div class="row">
+                  {% for hemisphere in mars.hemispheres %}
+                  <div class="col-md-6">
+                      <div class="card text-white bg-dark" style="margin: 30px;">
+                          <img class="card-img-top" src="{{hemisphere.img_url}}" 
+                                style="width:100%"/>
+                          <div class="card-body" text-center>
+                              <h3 class="card-title">{{hemisphere.title}}</h3>
+                          </div>
+                      </div>
+                  </div>
+                  {% endfor %}
+              </div>
+          </div>
         </div>
       </div>
     </div>
